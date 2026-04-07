@@ -15,7 +15,7 @@ const staggerContainer = {
   }
 };
 
-export default function AboutUs() {
+export default function Aboutus() {
   return (
     <motion.div
       initial={{ opacity: 0 }}
