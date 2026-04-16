@@ -14,15 +14,15 @@ const menuItems = [
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
 const staggerContainer = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.15, delayChildren: 0.2 }
-  }
+    transition: { staggerChildren: 0.15, delayChildren: 0.2 },
+  },
 };
 
 export default function Hero() {
@@ -33,13 +33,16 @@ export default function Hero() {
       setIsMobile(window.innerWidth < 768);
     };
     checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   return (
-    <div 
-      style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }} 
+    <div
+      style={{
+        fontFamily:
+          "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+      }}
       className="bg-white min-h-screen md:h-[86vh] overflow-y-auto md:overflow-hidden flex flex-col"
     >
       {/* ── HERO ── */}
@@ -52,8 +55,11 @@ export default function Hero() {
           className="flex-1 flex flex-col justify-between px-4 sm:px-6 md:px-10 lg:px-14 py-6 md:py-8 relative z-10"
         >
           {/* Label */}
-          <motion.div variants={fadeInUp} className="flex items-center gap-3 flex-shrink-0">
-            <motion.div 
+          <motion.div
+            variants={fadeInUp}
+            className="flex items-center gap-3 flex-shrink-0"
+          >
+            <motion.div
               initial={{ width: 0 }}
               animate={{ width: 28 }}
               transition={{ duration: 0.8 }}
@@ -66,34 +72,45 @@ export default function Hero() {
 
           {/* Heading */}
           <div className="flex flex-col justify-center py-3 sm:py-4">
-            <motion.span 
+            <motion.span
               variants={fadeInUp}
               className="text-black/30 text-lg sm:text-xl md:text-2xl lg:text-3xl italic mb-1 font-light"
               style={{ fontFamily: "'Cormorant Garamond', 'Georgia', serif" }}
             >
               the art of
             </motion.span>
-            <motion.span 
+            <motion.span
               variants={fadeInUp}
               className="text-black text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[100px] leading-[1.05] tracking-[-2px] sm:tracking-[-3px] font-light"
-              style={{ fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 300 }}
+              style={{
+                fontFamily: "'Cormorant Garamond', 'Georgia', serif",
+                fontWeight: 300,
+              }}
             >
               Desi
             </motion.span>
-            <motion.span 
+            <motion.span
               variants={fadeInUp}
               whileHover={{ scale: isMobile ? 1 : 1.02 }}
               className="text-black/50 italic leading-[1.05] tracking-[-2px] sm:tracking-[-3px] text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[100px] font-semibold"
-              style={{ fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 600 }}
+              style={{
+                fontFamily: "'Cormorant Garamond', 'Georgia', serif",
+                fontWeight: 600,
+              }}
             >
               Zaika
             </motion.span>
-            <motion.p 
+            <motion.p
               variants={fadeInUp}
               className="text-black/50 mt-3 max-w-sm leading-relaxed text-xs sm:text-sm md:text-base"
-              style={{ fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontSize: "clamp(0.8rem, 3vw, 17px)", fontStyle: "italic" }}
+              style={{
+                fontFamily: "'Cormorant Garamond', 'Georgia', serif",
+                fontSize: "clamp(0.8rem, 3vw, 17px)",
+                fontStyle: "italic",
+              }}
             >
-              Slow fire. Deep spice. Recipes passed down through generations — now served to yours.
+              Slow fire. Deep spice. Recipes passed down through generations —
+              now served to yours.
             </motion.p>
           </div>
 
@@ -110,13 +127,13 @@ export default function Hero() {
                 </motion.button>
               </Link>
               <div className="hidden sm:block w-px h-6 bg-black/10" />
-              <motion.button 
+              <motion.button
                 whileHover={{ x: isMobile ? 0 : 5 }}
                 className="flex items-center justify-center sm:justify-start gap-3 text-black/40 text-[10px] font-medium tracking-[3px] uppercase hover:text-black/60 transition-colors"
               >
                 Reserve a table
                 <div className="relative w-6 h-px bg-black/30">
-                  <motion.span 
+                  <motion.span
                     animate={{ x: [0, 5, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
                     className="absolute -right-px -top-[3px] w-1.5 h-1.5 border-r border-t border-black/30 rotate-45 block"
@@ -141,7 +158,10 @@ export default function Hero() {
                 >
                   <div
                     className="text-black leading-none text-2xl md:text-3xl font-light"
-                    style={{ fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 300 }}
+                    style={{
+                      fontFamily: "'Cormorant Garamond', 'Georgia', serif",
+                      fontWeight: 300,
+                    }}
                   >
                     {s.n}
                   </div>
@@ -155,14 +175,16 @@ export default function Hero() {
         </motion.div>
 
         {/* Right — video grid - Stack on mobile */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
           className="flex-1 grid grid-cols-1 sm:grid-cols-2 grid-rows-auto sm:grid-rows-2 gap-[2px] min-h-0 mt-4 md:mt-0"
         >
           {/* First video - full width on mobile, row-span on desktop */}
-          <div className={`${!isMobile ? 'sm:row-span-2' : ''} bg-black/5 relative overflow-hidden aspect-video sm:aspect-auto`}>
+          <div
+            className={`${!isMobile ? "sm:row-span-2" : ""} bg-black/5 relative overflow-hidden aspect-video sm:aspect-auto`}
+          >
             <video
               src={Vid1}
               autoPlay
@@ -176,7 +198,7 @@ export default function Hero() {
               Karahi Gosht
             </div>
           </div>
-          
+
           {/* Second video */}
           <div className="bg-black/5 relative overflow-hidden aspect-video sm:aspect-auto">
             <video
@@ -192,7 +214,7 @@ export default function Hero() {
               Dum Biryani
             </div>
           </div>
-          
+
           {/* Third video */}
           <div className="bg-black/5 relative overflow-hidden aspect-video sm:aspect-auto">
             <video
@@ -230,7 +252,9 @@ export default function Hero() {
                   <div className="w-1 h-1 rounded-full bg-black/20 flex-shrink-0" />
                   <span
                     className="text-black/60 whitespace-nowrap group-hover:text-black transition-colors text-xs sm:text-sm md:text-base font-medium"
-                    style={{ fontFamily: "'Cormorant Garamond', 'Georgia', serif" }}
+                    style={{
+                      fontFamily: "'Cormorant Garamond', 'Georgia', serif",
+                    }}
                   >
                     {item.name}
                   </span>
@@ -246,7 +270,7 @@ export default function Hero() {
                 className="flex items-center gap-2 sm:gap-3 pl-3 sm:pl-5 pr-4 sm:pr-6 cursor-pointer flex-shrink-0 h-full hover:bg-black/5 transition-colors"
               >
                 <span className="text-black/50 text-[9px] font-semibold tracking-[2px] sm:tracking-[3px] uppercase whitespace-nowrap">
-                  View all → 
+                  View all →
                 </span>
               </Link>
             </div>
