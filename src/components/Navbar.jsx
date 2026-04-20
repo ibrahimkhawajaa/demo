@@ -71,35 +71,33 @@ function Navbar() {
             </button>
           </div>
         </div>
+      </div>
 
-        {/* Mobile menu dropdown */}
-        {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-100">
-            <div className="flex flex-col space-y-4">
-              <Link
-                to="/"
-                className="text-gray-800 font-medium text-[15px] hover:text-gray-500 px-2 py-1"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Home
-              </Link>
-              <Link
-                to="/about"
-                className="text-gray-800 font-medium text-[15px] hover:text-gray-500 px-2 py-1"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                About me
-              </Link>
-              <Link
-                to="/contact"
-                className="text-gray-800 font-medium text-[15px] hover:text-gray-500 px-2 py-1"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Contact
-              </Link>
-            </div>
-          </div>
-        )}
+      {/* Full-screen mobile menu overlay */}
+      <div className={`fixed inset-0 bg-black bg-opacity-75 flex flex-col items-center justify-center z-50 transition-opacity duration-300 ${isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+        <div className={`flex flex-col space-y-8 text-center transform transition-transform duration-500 ${isMenuOpen ? 'translate-y-0' : '-translate-y-full'}`}>
+          <Link
+            to="/"
+            className="text-white text-3xl font-medium hover:text-gray-300"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Home
+          </Link>
+          <Link
+            to="/about"
+            className="text-white text-3xl font-medium hover:text-gray-300"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            About me
+          </Link>
+          <Link
+            to="/contact"
+            className="text-white text-3xl font-medium hover:text-gray-300"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Contact
+          </Link>
+        </div>
       </div>
     </nav>
   );
