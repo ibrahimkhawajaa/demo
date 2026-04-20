@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Hero from "./Hero.jsx";
 import MenuPage from "./MenuPage.jsx";
 import Navbar from "./components/Navbar.jsx";
-import Aboutus from "./Aboutus.jsx";
+import AboutUs from "./AboutUs.jsx";
 import ContactUs from "./ContactUs.jsx";
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Hero />} />
         <Route path="/menu" element={<MenuPage />} />
-        <Route path="/about" element={<Aboutus />} />
+        <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<ContactUs />} />
       </Routes>
     </Router>
